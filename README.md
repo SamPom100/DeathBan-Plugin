@@ -2,7 +2,7 @@
 Version 2.0 of Death-Ban.
 
 #DeathBan
-*for Moonmoon's HardCore Server.
+*for Moonmoon's HardCore Server.*
 
 
 This plugin adds a player to the banlist when they die, and leave.

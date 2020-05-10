@@ -1,7 +1,7 @@
 # DeathBan-Plugin
 Version 2.0 of Death-Ban.
 
-#DeathBan
+
 *for Moonmoon's HardCore Server.*
 
 

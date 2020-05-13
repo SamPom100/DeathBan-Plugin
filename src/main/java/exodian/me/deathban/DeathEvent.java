@@ -16,11 +16,13 @@ public class DeathEvent implements Listener {
     public void onDeath(PlayerGameModeChangeEvent event){
         Player player = event.getPlayer();
         if((event.getNewGameMode() == GameMode.SPECTATOR) && (!player.hasPermission("banondeath.immune"))){
-            player.getServer().getBanList(BanList.Type.NAME).addBan(player.getName(), "RIP", null, "BanOnDeath"); // NAME BAN
-            player.getServer().getLogger().info("BanOnDeath has banned " + player.getName());
             final Team bros = player.getServer().getScoreboardManager().getMainScoreboard().getTeam("Brothers");
             final Team leader = player.getServer().getScoreboardManager().getMainScoreboard().getTeam("Leader");
             final String name = player.getName();
+
+            player.getServer().getBanList(BanList.Type.NAME).addBan(name, "RIP", null, "BanOnDeath"); // NAME BAN
+            player.getServer().getLogger().info("BanOnDeath has banned " + name);
+
             try {
                 if(!bros.hasEntry(name) && !leader.hasEntry(name)){
                     player.getServer().broadcast(ChatColor.DARK_RED+""+ChatColor.ITALIC+"[DeathBan] "+name+" has been automatically banned.", player.getServer().BROADCAST_CHANNEL_ADMINISTRATIVE);
@@ -28,6 +30,7 @@ public class DeathEvent implements Listener {
                 }
             } catch (NullPointerException ex) {
                 player.getServer().getLogger().warning("Tried to ban player, but the required teams were missing");
+                player.getServer().getBanList(BanList.Type.NAME).pardon(name);
             }
         }
     }

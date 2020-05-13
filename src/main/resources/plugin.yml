@@ -10,4 +10,4 @@ website: github.com/SamPom100
 permissions:
   deathban.immune:
     description: Renders you immune from the plugin.
-    default: false
+    default: op

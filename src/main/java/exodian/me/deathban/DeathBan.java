@@ -6,7 +6,7 @@ public final class DeathBan extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(new QuitEvent(), this);
+        getServer().getPluginManager().registerEvents(new DeathEvent(), this);
         getLogger().info("DeathBan v2.0 has started.");
     }
 
